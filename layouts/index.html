@@ -9,7 +9,16 @@
     Posts
   </h2>
 
-  <div class="recent-posts"></div>
+  <div class="recent-posts">
+    <ul>
+        {{ range first 6 (where .Site.RegularPages "Section" "post")}}
+            <li class="post">
+                <h2><a href="{{.Permalink}}">{{.Title}}</a></h2>
+                <p>{{ .Description }}</p>
+            </li>
+        {{end}}
+      </ul>
+  </div>
 
   <a href="#">See more</a>
 </div>
