@@ -8,9 +8,27 @@
       {{range where .Site.Sections "Title" "Posts"}}
       <li><a href="{{.Permalink}}">{{ i18n "posts" }}</a></li>
       {{end}}
-      <li><a href="#">Categories</a></li>
-      <li><a href="#">Tags</a></li>
-      <li><a href="#">Series</a></li>
+      {{range $taxonomyname, $taxonomy := .Site.Taxonomies}}
+        {{if eq $taxonomyname "categories"}}
+          <li>
+            <a href="{{$.Site.Home.Permalink}}/categories.html">
+              {{i18n "categories"}}
+            </a>
+          </li>
+        {{else if (eq $taxonomyname "tags")}}
+          <li> 
+            <a href="{{$.Site.Home.Permalink}}/tags.html">
+              {{i18n "tags"}}
+            </a>
+          </li>
+        {{else if eq $taxonomyname "series"}}
+          <li>
+            <a href="{{$.Site.Home.Permalink}}/series.html">
+              {{i18n "series"}}
+            </a>
+          </li>
+        {{end}}
+      {{end}}
       {{range where .Site.Sections "Title" "Galleries"}}
       <li><a href="{{.Permalink}}">{{ i18n "galleries" }}</a></li>
       {{end}}
