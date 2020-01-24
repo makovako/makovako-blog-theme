@@ -3,15 +3,25 @@
     <span class="navbar-toggle" id="js-navbar-toggle">
       <i class="fa fa-bars"></i>
     </span>
-    <a href="#" class="logo">M</a>
+    <a href="{{.Site.Home.Permalink}}" class="logo">M</a>
     <ul class="main-nav" id="js-menu">
-      <li><a href="#">Posts</a></li>
+      {{range where .Site.Sections "Title" "Posts"}}
+      <li><a href="{{.Permalink}}">{{ i18n "posts" }}</a></li>
+      {{end}}
       <li><a href="#">Categories</a></li>
       <li><a href="#">Tags</a></li>
       <li><a href="#">Series</a></li>
-      <li><a href="#">Galleries</a></li>
+      {{range where .Site.Sections "Title" "Galleries"}}
+      <li><a href="{{.Permalink}}">{{ i18n "galleries" }}</a></li>
+      {{end}}
       <li><a href="#">Search</a></li>
-      <li><a href="#">SK|EN</a></li>
+      {{ range .Site.Home.AllTranslations }}
+        {{if eq $.Site.Language.Lang .Lang}}
+        <li><a class="active-language" href="{{ .Permalink }}">{{ .Language }}</a></li>
+        {{else}}
+        <li><a href="{{ .Permalink }}">{{ .Language }}</a></li>
+        {{end}}
+      {{ end }}
     </ul>
   </nav>
 </header>
