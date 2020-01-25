@@ -1,0 +1,23 @@
+{{define "main"}}
+
+<div class="series">
+    <h1>{{i18n "all-series"}}</h1>
+    <div class="series-list">
+
+        {{range .Data.Terms}}
+        <a href="{{.Page.Permalink}}">
+            <h3>
+                {{.Page.Title}}
+            </h3>
+            <div class="details">
+                {{.Page.Content}}
+            </div>
+            <h5>
+                {{i18n "post-count"}}: {{.Count}}
+            </h5>
+        </a>
+        {{end}}
+    </div>
+
+</div>
+{{end}}

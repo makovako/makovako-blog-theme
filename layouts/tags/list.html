@@ -1,0 +1,17 @@
+{{define "main"}}
+
+<div class="tags">
+    <h1>{{i18n "all-tags"}}</h1>
+    <div class="tags-list">
+
+        {{range .Data.Terms.Alphabetical}}
+        <a href="{{.Page.Permalink}}">
+            <p>
+                {{.Page.Title}} <span>({{.Count}})</span>
+            </p>
+        </a>
+        {{end}}
+    </div>
+
+</div>
+{{end}}
