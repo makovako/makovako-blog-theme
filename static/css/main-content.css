@@ -146,6 +146,38 @@ margin-top: 1rem;
     font-size: 3rem;
 }
 
+.main > article ul {
+    line-height: 1.5;
+    margin-bottom: 1rem;
+}
+.main > article ul li{
+    list-style-position: inside;
+    list-style-type: disc;
+    
+}
+.main > article ol {
+    line-height: 1.5;
+    
+}
+.main > article ol li{
+    list-style-position: inside;
+    list-style-type: decimal;   
+}
+
+.main > article a {
+    text-decoration: underline;
+}
+
+.main > article a:hover {
+    color: #666;
+}
+
+.main > article .table-of-content ul {
+    margin: 0;
+}
+.main > article .table-of-content ul ul {
+    margin-left: 1rem;
+}
 .main .galleries{
 
 }

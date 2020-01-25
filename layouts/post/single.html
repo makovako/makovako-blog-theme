@@ -5,7 +5,7 @@
   {{ if .IsTranslated }}
   <div class="available-languages">
     <h4>
-      Read in other language:
+      {{i18n "read-in-other-language"}}:
       {{ range .Translations }}
         <a href="{{ .Permalink }}">
           {{ .Lang }}
@@ -14,6 +14,12 @@
     </h4>
   </div>
   {{ end }}
+  {{if ne .TableOfContents }}
+  <div class="table-of-content">
+    <h2>{{i18n "table-of-content"}}</h2>
+    {{.TableOfContents}}
+  </div>
+  {{end}}
   <div class="post-content">
     {{ .Content }}
   </div>
