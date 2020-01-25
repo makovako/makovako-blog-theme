@@ -1,23 +1,19 @@
 {{ define "main"}}
 <div class="hero">
   <h1>
-    Welcome
+    {{i18n "welcome"}}
   </h1>
+  <p>{{i18n "welcome-text"}}</p>
 </div>
 <div class="posts">
   <h2>
-    Posts
+    {{i18n "posts"}}
   </h2>
   
-  <div class="recent-posts">
-    <ul>
-        {{ range first 6 (where .Site.RegularPages "Section" "post")}}
-            <li class="post">
-                <h2><a href="{{.Permalink}}">{{.Title}}</a></h2>
-                <p>{{ .Description }}</p>
-            </li>
-        {{end}}
-      </ul>
+  <div class="posts-list">
+    {{ range first 6 (where .Site.RegularPages "Section" "post")}}
+        {{ partial "article.html" .}}
+    {{end}}
   </div>
 
   {{range where .Site.Sections "Title" "Posts"}}
@@ -27,7 +23,7 @@
 
 <div class="galleries">
   <h2>
-    Galleries
+    {{i18n "galleries"}}
   </h2>
 
   <div class="recent-galleries"></div>
