@@ -1,19 +1,25 @@
 {{define "main"}}
 
-  <h1>Posts</h1>
+<div class="posts">
+  <h1>{{i18n "posts"}}</h1>
+  <div class="posts-list">
+  
   {{ range .Paginator.Pages }}
-  <article>
-  <h2><a href="{{.Permalink}}">{{ .Title }}</a></h2>
-  <p>{{ .Description }}</p>
-</article>
-
+    {{ partial "article.html" .}}
+  
   {{ end }}
-{{ template "_internal/pagination.html" . }}
-{{ if .Paginator.HasPrev }}
-    <a href="{{ .Paginator.Prev.URL }}">  Prev </a>
-{{ end }}
-{{ if .Paginator.HasNext }}
-    <a href="{{ .Paginator.Next.URL }}">  Next </a>
-{{ end }}
+</div>
+</div>
+<div class="pagination">
+
+  <!-- {{ template "_internal/pagination.html" . }} -->
+  {{ if .Paginator.HasPrev }}
+  <a href="{{ .Paginator.Prev.URL }}">{{i18n "prev-pages"}}</a>
+  {{ end }}
+  {{ if .Paginator.HasNext }}
+  <a href="{{ .Paginator.Next.URL }}">{{i18n "next-pages"}}</a>
+  {{ end }}
+</div>
+
 
 {{end}}
