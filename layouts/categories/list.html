@@ -1,8 +1,20 @@
 {{define "main"}}
-Categories list
-{{range .Data.Terms.ByCount}}
-<a href="{{.Page.Permalink}}">
-{{.Page.Title}}
-</a>
-{{end}}
+
+<div class="categories">
+    <h1>{{i18n "all-categories"}}</h1>
+    <div class="categories-list">
+
+        {{range .Data.Terms.ByCount}}
+        <a href="{{.Page.Permalink}}">
+            <h3>
+                {{.Page.Title}}
+            </h3>
+            <h5>
+                {{i18n "post-count"}}: {{.Count}}
+            </h5>
+        </a>
+        {{end}}
+    </div>
+
+</div>
 {{end}}
