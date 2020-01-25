@@ -37,14 +37,16 @@
       {{range where .Site.Sections "Title" "Galleries"}}
       <li><a href="{{.Permalink}}">{{ i18n "galleries" }}</a></li>
       {{end}}
-      <li><a href="#">Search</a></li>
+      <!-- <li><a href="#">Search</a></li> -->
+      <li class="languages">
       {{ range .Site.Home.AllTranslations }}
         {{if eq $.Site.Language.Lang .Lang}}
-        <li><a class="active-language" href="{{ .Permalink }}">{{ .Language }}</a></li>
+        <a class="active-language" href="{{ .Permalink }}">{{ .Language }}</a>
         {{else}}
-        <li><a class="inactive-language" href="{{ .Permalink }}">{{ .Language }}</a></li>
+        <a class="inactive-language" href="{{ .Permalink }}">{{ .Language }}</a>
         {{end}}
       {{ end }}
+      </li>
     </ul>
   </nav>
 </header>
