@@ -2,15 +2,13 @@
 
 <div class="posts">
     <h1>{{.Title}}</h1>
-    <p class="details">
-        {{ .Content }}
-    </p>
     <div class="posts-list">
         {{ range .Paginator.Pages }}
             {{ partial "article.html" .}}
   
         {{ end }}
     </div>
+
 </div>
 {{if gt .Paginator.TotalPages 1}}
     <div class="pagination">
