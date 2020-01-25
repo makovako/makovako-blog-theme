@@ -1,7 +1,35 @@
 <article>
   <a href="{{.Permalink}}">
-    <h2>{{ .Title }}</h2>
-    <h5>{{ dateFormat "15:04, 02 Jan 2006" .Date }}</h5>
-    <p>{{ .Description }}</p>
+    {{if .Resources.Match "cover.jpg"}}
+    <div style="
+      display: grid;
+      grid-template-rows: 1fr 1fr;
+      ">
+    {{else}}
+    <div style="
+      display: grid;
+      grid-template-rows: 1fr;
+      ">
+    {{end}}
+      {{range .Resources.Match "cover.jpg"}}
+      {{$image := .Resize "300x"}}
+        <div style="
+          height: 100%;
+          width: 100%;
+          background-image: url({{$image.Permalink}});
+          background-size: cover;
+          background-position: center center;
+        ">
+        </div>
+      {{end}}
+      <div style="
+        padding: 1rem;
+      ">
+        <h2 class="title">{{ .Title }}</h2>
+        <h5 class="date">{{ dateFormat "15:04, 02 Jan 2006" .Date }}</h5>
+        <p>{{ .Description }}</p>
+      </div>
+
+    </div>
 </a>
 </article>
