@@ -8,7 +8,7 @@
   <h2>
     Posts
   </h2>
-
+  
   <div class="recent-posts">
     <ul>
         {{ range first 6 (where .Site.RegularPages "Section" "post")}}
@@ -20,7 +20,9 @@
       </ul>
   </div>
 
-  <a href="#">See more</a>
+  {{range where .Site.Sections "Title" "Posts"}}
+    <a href="{{.Permalink}}">{{ i18n "see-more" }}</a>
+  {{end}}
 </div>
 
 <div class="galleries">
@@ -29,6 +31,8 @@
   </h2>
 
   <div class="recent-galleries"></div>
-  <a href="#">See more</a>
+  {{range where .Site.Sections "Title" "Galleries"}}
+    <li><a href="{{.Permalink}}">{{ i18n "see-more" }}</a></li>
+  {{end}}
 </div>
 {{end}}
