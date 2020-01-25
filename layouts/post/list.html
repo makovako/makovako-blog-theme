@@ -10,16 +10,22 @@
   {{ end }}
 </div>
 </div>
-<div class="pagination">
+{{if gt .Paginator.TotalPages 1}}
+    <div class="pagination">
+        <!-- {{ template "_internal/pagination.html" . }} -->
+        {{ if .Paginator.HasPrev }}
+        <a href="{{ .Paginator.Prev.URL }}">{{i18n "prev-pages"}}</a>
+        {{ end }}
+        <p>
+            {{.Paginator.PageNumber}} {{i18n "of"}} {{.Paginator.TotalPages}}
+        </p>
 
-  <!-- {{ template "_internal/pagination.html" . }} -->
-  {{ if .Paginator.HasPrev }}
-  <a href="{{ .Paginator.Prev.URL }}">{{i18n "prev-pages"}}</a>
-  {{ end }}
-  {{ if .Paginator.HasNext }}
-  <a href="{{ .Paginator.Next.URL }}">{{i18n "next-pages"}}</a>
-  {{ end }}
-</div>
+        {{ if .Paginator.HasNext }}
+        <a href="{{ .Paginator.Next.URL }}">{{i18n "next-pages"}}</a>
+        {{ end }}
+    </div>
+{{end}}
+
 
 
 {{end}}
