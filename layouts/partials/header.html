@@ -41,9 +41,9 @@
       <li class="languages">
       {{ range .Site.Home.AllTranslations }}
         {{if eq $.Site.Language.Lang .Lang}}
-        <a class="active-language" href="{{ .Permalink }}">{{ .Language }}</a>
+        <a class="active-language" href="{{ .Permalink }}">{{ if eq .Language.Lang "en"}}🇬🇧{{end}}{{ if eq .Language.Lang "sk"}}🇸🇰{{end}}</a>
         {{else}}
-        <a class="inactive-language" href="{{ .Permalink }}">{{ .Language }}</a>
+        <a class="inactive-language" href="{{ .Permalink }}">{{ if eq .Language.Lang "en"}}🇬🇧{{end}}{{ if eq .Language.Lang "sk"}}🇸🇰{{end}}</a>
         {{end}}
       {{ end }}
       </li>

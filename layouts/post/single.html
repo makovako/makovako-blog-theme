@@ -8,7 +8,8 @@
       {{i18n "read-in-other-language"}}:
       {{ range .Translations }}
         <a href="{{ .Permalink }}">
-          {{ .Lang }}
+          {{ if eq .Lang "en"}}🇬🇧{{end}}{{ if eq .Lang "sk"}}🇸🇰{{end}}
+          <!-- {{ .Lang }} -->
         </a>
       {{ end }}
     </h4>

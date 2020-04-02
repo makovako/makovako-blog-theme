@@ -35,15 +35,17 @@
 }
 
 .active-language {
-    color: #333;
+    /* color: #333; */
+    opacity:1;
 }
 
 .inactive-language {
-    color: #666;
+    opacity:0.5;
 }
 
 .active-language:hover, .inactive-language:hover {
-    color: #000;
+    /* color: #000; */
+    opacity: 1;
 }
 
 .main-nav .languages a:first-of-type {
